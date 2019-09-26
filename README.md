@@ -70,19 +70,19 @@ const singleReducer = factory.getReducer(singleReducerConfig);
 
 ## Examples
 
-1. [Basic switch reducer](docs/cases/basic-switch)
-2. [Advanced switch reducer](docs/cases/advanced-switch)
-3. [Assign reducer](docs/cases/assign)
-4. [Insert reducers](docs/cases/insert)
-5. [Transforms](docs/cases/transform)
-6. [Default values](docs/cases/defaultvalue)
-7. [Reducer delegation](docs/cases/delegation)
-8. [`from`,`to` cases](docs/cases/fromto)
-9. [`actions` config](docs/cases/actions)
-10. [Shorthands](docs/cases/shorthands)
-11. [Macros](docs/cases/macros)
-12. [Custom macros](docs/cases/custommacros)
-13. [Custom ops](docs/cases/customops)
+1. [Basic switch reducer](./docs/cases/basic-switch)
+2. [Advanced switch reducer](./docs/cases/advanced-switch)
+3. [Assign reducer](./docs/cases/assign)
+4. [Insert reducers](./docs/cases/insert)
+5. [Transforms](./docs/cases/transform)
+6. [Default values](./docs/cases/defaultvalue)
+7. [Reducer delegation](./docs/cases/delegation)
+8. [`from`,`to` cases](./docs/cases/fromto)
+9. [`actions` config](./docs/cases/actions)
+10. [Shorthands](./docs/cases/shorthands)
+11. [Macros](./docs/cases/macros)
+12. [Custom macros](./docs/cases/custommacros)
+13. [Custom ops](./docs/cases/customops)
 
 ## ReducerFactory class
 
