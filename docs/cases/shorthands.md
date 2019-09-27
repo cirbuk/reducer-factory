@@ -60,7 +60,7 @@ can be reduced to
       defaultState: {},
     }
   },
-  types: {
+  actions: {
     FETCHED: {
       op: ops.ASSIGN,
       reducers: {
@@ -94,7 +94,7 @@ can be reduced to
       defaultState: {},
     }
   },
-  types: {
+  actions: {
     FETCHED: {
       reducers: {
         name: "response.name",
