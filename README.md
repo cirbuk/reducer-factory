@@ -244,8 +244,8 @@ There are 2 types of `transform` functions depending on where they are defined i
       //with default state ""
       defaultState: "",
 
-      //Reducer level transform. Will be called if any of the ops in the ops array matches an incoming action and it 
-      // does not have a transform defined
+      //Reducer level transform. Will be called if any of the ops in the ops array matches an 
+      // incoming action and it does not have a transform defined
       transform: extractedValue => `${extractedValue}_reducer_tranform`,
 
       //Defines array of operations that need to be performed
