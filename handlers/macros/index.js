@@ -1,5 +1,5 @@
 import { macros } from "../../constants";
-import { isFunction, isUndefined } from "@bit/kubric.utils.common.lodash";
+import { isFunction, isUndefined } from "@kubric/litedash";
 import switchExpander from './switch';
 import counterExpander from './counter';
 

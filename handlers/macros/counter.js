@@ -1,4 +1,4 @@
-import { isFunction, isValidString, at } from "@bit/kubric.utils.common.lodash";
+import { isFunction, isValidString, get } from "@kubric/litedash";
 import { toArray } from "../../utils";
 import { patchState } from "@bit/kubric.redux.state.utils";
 
@@ -6,7 +6,7 @@ export default ({ defaultState = 0, to, step = 1, next = [], previous = [], firs
   const getMax = state => isFunction(max) ? max(state) : +max;
   const getMin = state => isFunction(min) ? min(state) : +min;
   const hasTo = isValidString(to);
-  const getCurrentCount = state => hasTo ? at(state, to)[0] : state;
+  const getCurrentCount = state => hasTo ? get(state, to) : state;
   const getNewState = (state, finalCount) => {
     if (hasTo) {
       const splits = to.split('.');

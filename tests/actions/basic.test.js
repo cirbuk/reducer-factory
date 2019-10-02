@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from "redux";
 import ReducerFactory from "../../index";
-import { isString } from "@bit/kubric.utils.common.lodash";
+import { isString } from "@kubric/litedash";
 
 const typesReducers = {
   actions: {

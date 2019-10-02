@@ -1,5 +1,4 @@
 import { ops } from "../constants";
-import { isString } from "@bit/kubric.utils.common.lodash";
 
 export const types = {
   ON: "ON",

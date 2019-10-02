@@ -3,6 +3,11 @@
   "version": "2.0.1",
   "homepage": "https://bit.dev/kubric/redux/reducers/factory",
   "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
   "dependencies": {
     "@bit/kubric.redux.reducers.utils": "0.0.3",
     "@bit/kubric.redux.state.utils": "1.0.2",

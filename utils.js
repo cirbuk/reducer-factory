@@ -1,4 +1,4 @@
-import { isFunction, at, set } from "@bit/kubric.utils.common.lodash"
+import { isFunction, set, get } from "@kubric/litedash"
 import { patchState } from "@bit/kubric.redux.state.utils";
 
 export const applyTransform = (toTransform, transform, state, action) =>
@@ -9,7 +9,7 @@ export const assignAtPath = (toAssign, path, state) => {
   const last = splits.pop();
   const pathUptoLast = splits.join('.');
   //If tha value is to be assigned as an element of the array
-  if (!isNaN(+last) && Array.isArray(at(state, pathUptoLast)[0])) {
+  if (!isNaN(+last) && Array.isArray(get(state, pathUptoLast))) {
     //A new state is formed which is a replica of the existing state but with
     //all objects along the path cloned
     const newState = patchState(state, pathUptoLast, []);
@@ -23,3 +23,6 @@ export const assignAtPath = (toAssign, path, state) => {
 };
 
 export const toArray = str => Array.isArray(str) ? str : [str];
+
+export const composeReducers = (reducers = [], defaultState = {}) =>
+  (state = defaultState, action) => reducers.reduce((state, reducer) => reducer(state, action), state);
