@@ -1,5 +1,5 @@
 import { isFunction, set, get } from "@kubric/litedash"
-import { patchState } from "@bit/kubric.redux.state.utils";
+import { patchState } from "@kubric/reduxutils";
 
 export const applyTransform = (toTransform, transform, state, action) =>
   isFunction(transform) ? transform(toTransform, state, action) : toTransform;
@@ -12,13 +12,13 @@ export const assignAtPath = (toAssign, path, state) => {
   if (!isNaN(+last) && Array.isArray(get(state, pathUptoLast))) {
     //A new state is formed which is a replica of the existing state but with
     //all objects along the path cloned
-    const newState = patchState(state, pathUptoLast, []);
+    const newState = patchState(state, [], pathUptoLast);
     set(newState, path, toAssign);
     return newState;
   } else {
-    return patchState(state, pathUptoLast, {
+    return patchState(state, {
       [last]: toAssign
-    });
+    }, pathUptoLast);
   }
 };
 

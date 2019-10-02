@@ -1,6 +1,6 @@
 import { isFunction, isValidString, get } from "@kubric/litedash";
 import { toArray } from "../../utils";
-import { patchState } from "@bit/kubric.redux.state.utils";
+import { patchState } from "@kubric/reduxutils";
 
 export default ({ defaultState = 0, to, step = 1, next = [], previous = [], first = [], last = [], max, min = 0, ops: extraOps = [], ...rest }) => {
   const getMax = state => isFunction(max) ? max(state) : +max;
@@ -12,9 +12,9 @@ export default ({ defaultState = 0, to, step = 1, next = [], previous = [], firs
       const splits = to.split('.');
       const last = splits.pop();
       return patchState(state, {
-        path: splits.join('.')
-      }, {
         [last]: finalCount
+      }, {
+        path: splits.join('.')
       });
     }
     return finalCount;

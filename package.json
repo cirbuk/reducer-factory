@@ -9,9 +9,8 @@
     "test-watch": "jest --watch"
   },
   "dependencies": {
-    "@bit/kubric.redux.reducers.utils": "0.0.3",
-    "@bit/kubric.redux.state.utils": "1.0.2",
     "@kubric/litedash": "^0.0.2",
+    "@kubric/reduxutils": "^0.0.1",
     "@kubric/resolver": "^1.0.1"
   },
   "devDependencies": {

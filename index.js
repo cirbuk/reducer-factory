@@ -2,7 +2,7 @@ import { isString, isUndefined, isFunction, isValidString, isPlainObject } from 
 import { ops } from "./constants";
 import handlers from './handlers';
 import MacroExpander from './handlers/macros';
-import { composeReducers } from "@bit/kubric.redux.reducers.utils";
+import { composeReducers } from "@kubric/reduxutils";
 import Resolver from "@kubric/resolver";
 
 const resolver = new Resolver();

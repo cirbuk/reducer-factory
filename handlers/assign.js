@@ -1,7 +1,7 @@
 import { assignAtPath, applyTransform } from "../utils";
 import { get, isUndefined } from "@kubric/litedash";
 import { ops } from "../constants";
-import { patchState } from "@bit/kubric.redux.state.utils";
+import { patchState } from "@kubric/reduxutils";
 
 export default (state, { op, defaultValue, transform, basePath = '' } = {}, dispatchedAction) => {
   const { type, to, from = '', at: insertAt } = op;
@@ -11,14 +11,14 @@ export default (state, { op, defaultValue, transform, basePath = '' } = {}, disp
   if (type === ops.ASSIGN) {
     return isUndefined(to) ? valueToAssign : assignAtPath(valueToAssign, to, state);
   } else if (type === ops.APPEND || type === ops.INSERT) {
-    return patchState(state, {
+    return patchState(state, valueToAssign, {
       path: to,
       at: insertAt
-    }, valueToAssign);
+    });
   } else if (type === ops.PREPEND) {
-    return patchState(state, {
+    return patchState(state, valueToAssign, {
       path: to,
       at: 0
-    }, valueToAssign);
+    });
   }
 };

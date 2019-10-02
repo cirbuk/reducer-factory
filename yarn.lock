@@ -724,23 +724,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bit/kubric.redux.reducers.utils@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bitsrc.io/kubric.redux.reducers.utils/-/kubric.redux.reducers.utils-0.0.3.tgz#64b8d76070125b51e907f36603f43a9ae0c9880d"
-  integrity sha1-ZLjXYHASW1HpB/NmA/Q6muDJiA0=
-
-"@bit/kubric.redux.state.utils@1.0.2":
-  version "1.0.2"
-  resolved "https://node.bitsrc.io/kubric.redux.state.utils/-/kubric.redux.state.utils-1.0.2.tgz#acc0e1ef090c8820bdcda854668b5fc04ab7092f"
-  integrity sha1-rMDh7wkMiCC9zahUZotfwEq3CS8=
-  dependencies:
-    "@bit/kubric.utils.common.lodash" "1.0.11"
-
-"@bit/kubric.utils.common.lodash@1.0.11":
-  version "1.0.11"
-  resolved "https://node.bitsrc.io/kubric.utils.common.lodash/-/kubric.utils.common.lodash-1.0.11.tgz#ab3874fa3bf69a4176533b88bce2da0c77410c7c"
-  integrity sha1-qzh0+jv2mkF2UzuIvOLaDHdBDHw=
-
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -901,6 +884,13 @@
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@kubric/litedash/-/litedash-0.0.2.tgz#da99fbc404240c00c65ce36db80d1b6ea779cbd9"
   integrity sha512-qaSTZJRBQfwYuF0gH3T9fsx2tBBVTUECVMwK8/6FZEsSRPHSzgKriO1NJuJltzasUGa2ZIjGgRQ1l7Jr9vaCwg==
+
+"@kubric/reduxutils@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@kubric/reduxutils/-/reduxutils-0.0.1.tgz#a1649467e10c9bcb6d96efca82d9e3ab666bdec1"
+  integrity sha512-utMw69xe0/lMnX0jDhPel7tsm1NOKdPSajYRj4pHkHD5coYMK1g3bL5EYjmT3UyPZlJg29uZTpAwSlVnM0gBqg==
+  dependencies:
+    "@kubric/litedash" "^0.0.2"
 
 "@kubric/resolver@^1.0.1":
   version "1.0.1"
