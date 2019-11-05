@@ -26,13 +26,13 @@ Reducer factory enables developers to configure all these operations via JSON an
 ## Installation
 
 ```yarn
-yarn add @bit/kubric.redux.reducers.factory
+yarn add @kubric/reducer-factory
 ```
 
 or
 
 ```npm
-npm i @bit/kubric.redux.reducers.factory
+npm i @kubric/reducer-factory
 ```
 
 ## Usage
