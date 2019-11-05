@@ -1,17 +1,25 @@
 {
-  "name": "kubric.redux.reducers.factory",
-  "version": "2.0.1",
-  "homepage": "https://bit.dev/kubric/redux/reducers/factory",
-  "main": "dist/index.js",
+  "name": "@kubric/reducer-factory",
+  "description": "Redux reducers made declarative",
+  "version": "1.0.0",
+  "homepage": "https://github.com/cirbuk/reducer-factory",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
     "test-watch": "jest --watch"
   },
-  "dependencies": {
-    "@kubric/litedash": "^0.0.2",
-    "@kubric/reduxutils": "^0.0.1",
-    "@kubric/resolver": "^1.0.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cirbuk/reducer-factory.git"
+  },
+  "author": "Jophin Joseph",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cirbuk/reducer-factory/issues"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
@@ -33,6 +41,9 @@
     "tslib": "1.10.0",
     "typescript": "3.5.3"
   },
-  "peerDependencies": {},
-  "license": "SEE LICENSE IN LICENSE"
+  "peerDependencies": {
+    "@kubric/litedash": "^0.0.2",
+    "@kubric/reduxutils": "^0.0.1",
+    "@kubric/resolver": "^1.0.1"
+  }
 }

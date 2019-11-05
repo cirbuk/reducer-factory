@@ -9,7 +9,7 @@ export default [
   // browser-friendly UMD build
   {
     //Change input file as required(point to js file if not a typescript library)
-    input: 'src/index.ts',
+    input: 'index.ts',
 
     output: {
       //Change output library name
@@ -20,10 +20,11 @@ export default [
       sourcemap: true,
       globals: {
         "@kubric/litedash": "litedash",
-        "@kubric/resolver": "resolver"
+        "@kubric/resolver": "resolver",
+        "@kubric/reduxutils": "reduxutils"
       }
     },
-    external: ["@kubric/litedash", "@kubric/resolver"],
+    external: ["@kubric/litedash", "@kubric/resolver", "@kubric/reduxutils"],
     plugins: [
       //Remove if not a typescript library
       typescript(),
@@ -48,7 +49,7 @@ export default [
 
   {
     //Change input file as required(point to js file if not a typescript library)
-    input: 'src/index.ts',
+    input: 'index.ts',
     output: [
       {
         file: pkg.main,
@@ -59,7 +60,7 @@ export default [
         format: 'es'
       }
     ],
-    external: ["@kubric/litedash", "@kubric/resolver"],
+    external: ["@kubric/litedash", "@kubric/resolver", "@kubric/reduxutils"],
     plugins: [
       //Remove if not a typescript library
       typescript()
