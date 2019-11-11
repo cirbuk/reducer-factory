@@ -41,7 +41,7 @@
     "tslib": "1.10.0",
     "typescript": "3.5.3"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@kubric/litedash": "^0.0.2",
     "@kubric/reduxutils": "^0.0.1",
     "@kubric/resolver": "^1.0.1"
