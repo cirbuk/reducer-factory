@@ -419,6 +419,17 @@ describe("Factory tests", () => {
     };
     return expect(store.getState()).toEqual(newState);
   });
+
+  it("29. Circular dependency check", () => {
+    const payload = {
+      test: 1
+    };
+    payload.payloadRef = payload;
+    expect(() => store.dispatch({
+      type: types.INSERT_OBJECT,
+      payload
+    })).not.toThrowError(new TypeError("Converting circular structure to JSON"));
+  });
 });
 
 describe("getReducer tests", () => {

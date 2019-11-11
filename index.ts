@@ -110,7 +110,13 @@ export default class ReducerFactory {
           let { op: configOp } = currentOp;
           let { type, payload: payloadOverride } = configOp;
           const handler = this.opHandlers[type];
-          let newAction = isPlainObject(action) ? JSON.parse(JSON.stringify(action)) : action;
+          let newAction;
+          try {
+            newAction = JSON.parse(JSON.stringify(action));
+          } catch(ex) {
+            //To handle circular dependency issues
+            newAction = action;
+          }
           newAction.payload = !isUndefined(payloadOverride) ? payloadOverride : newAction.payload;
           return handler(state, {
             ...currentOp,
