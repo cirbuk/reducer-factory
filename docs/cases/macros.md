@@ -7,7 +7,7 @@ Macros provide a way to abstract frequently used state operations involving mult
 More often than not, there is a case where 2 types will have to be defined, one for turning on a boolean and one for turning it off. At times, there can also be cases where there will be a type for toggle. The reducer factory definition for this case can be seen [here](basic-switch). The set of operations defined there can be defined as a switch macro as shown below
 
 ```JavaScript
-import ReducerFactory, { macros } from "@bit/kubric.redux.reducers.factory";
+import ReducerFactory, { macros } from "@kubric/reducer-factory";
 
 const factory = new ReducerFactory();
 
@@ -53,7 +53,7 @@ const reducers = factory.getReducers({
 ## `macros.COUNTER`
 
 ```JavaScript
-import ReducerFactory, { macros } from "@bit/kubric.redux.reducers.factory";
+import ReducerFactory, { macros } from "@kubric/reducer-factory";
 
 const factory = new ReducerFactory();
 

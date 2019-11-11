@@ -8,6 +8,14 @@ export enum Op {
   PREPEND = "PREPEND",
 }
 
+export interface ParsedOpDef {
+  type: string,
+  to?: string,
+  from?: string,
+  at?: number,
+  payload?: any
+}
+
 export interface ReducerOpDef {
   op?: Op,
   types: string | Array<string>,
@@ -21,7 +29,7 @@ export interface ReducerOpDef {
 }
 
 export interface ParsedReducerOpDef {
-  op?: Op,
+  op: ParsedOpDef,
   type: string,
   from?: string,
   to?: string,
@@ -29,14 +37,15 @@ export interface ParsedReducerOpDef {
   transform?: Function,
   defaultValue?: any,
   reducer?: Function,
-  payload?: any
+  payload?: any,
+  basePath?: string
 }
 
 export interface ReducerDef {
   ops?: Array<ReducerOpDef>
   defaultState: any,
   op?: Op,
-  type: string,
+  type?: string,
   from?: string,
   to?: string,
   at?: number,
@@ -46,7 +55,7 @@ export interface ReducerDef {
 }
 
 export interface ParsedTypeOperation {
-  op: ParsedReducerOpDef,
+  op: ParsedOpDef,
   transform?: Function,
   defaultValue?: any
 }
@@ -56,7 +65,7 @@ export interface ParsedTypeOperations {
 }
 
 export interface ReducersConfig {
-  [index: string]: ReducerDef,
+  [index: string]: ReducerDef | MacroDef,
 }
 
 export interface ParsedReducers {
@@ -99,4 +108,30 @@ export interface FullConfig {
 
 export interface ReduxAction {
   type: string,
+}
+
+export interface CounterMacroDef {
+  defaultState?: number,
+  to?: string,
+  step?: number,
+  next?: string | Array<string>,
+  previous?: string | Array<string>,
+  first?: string | Array<string>,
+  last?: string | Array<string>,
+  max?: number | Function,
+  min?: number | Function,
+  ops?: Array<ReducerOpDef>
+}
+
+export interface SwitchMacroDef {
+  defaultState?: boolean,
+  to?: string,
+  on?: string | Array<string>,
+  off?: string | Array<string>,
+  toggle?: string | Array<string>,
+  ops?: Array<ReducerOpDef>
+}
+
+export interface MacroDef {
+  macro: string
 }

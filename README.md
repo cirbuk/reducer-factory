@@ -38,7 +38,7 @@ npm i @kubric/reducer-factory
 ## Usage
 
 ```JavaScript
-import ReducerFactory from "@bit/kubric.redux.reducers.factory";
+import ReducerFactory from "@kubric/reducer-factory";
 import { combineReducers } from "redux";
 
 const factory = new ReducerFactory();
@@ -87,7 +87,7 @@ const singleReducer = factory.getReducer(singleReducerConfig);
 ## ReducerFactory class
 
 ```JavaScript
-import ReducerFactory from "@bit/kubric.redux.reducers.factory";
+import ReducerFactory from "@kubric/reducer-factory";
 
 const factory = new ReducerFactory(options);
 ```
@@ -137,7 +137,7 @@ Property | Description | Remarks
 State operations supported by the library are defined in the `ops` object exported by the library.
 
 ```JavaScript
-import { ops } from "@bit/kubric.redux.reducers.factory"
+import { ops } from "@kubric/reducer-factory"
 ```
 
 Operation | Description | Remarks

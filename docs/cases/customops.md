@@ -7,7 +7,7 @@ If your store has operations that are being performed frequently by a lot of red
 The below example defines a JSON_STRING_ASSIGN `op` that converts incoming action payload to a JSON string before assigning it
 
 ```JavaScript
-import ReducerFactory from "@bit/kubric.redux.reducers.factory";
+import ReducerFactory from "@kubric/reducer-factory";
 import _ from 'lodash';
 import { createStore } from 'redux';
 

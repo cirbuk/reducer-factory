@@ -10,7 +10,11 @@ import {
   ParsedReducers,
   ReducerDef,
   FullConfig,
-  ReducersConfig, ActionsConfig, ActionReducerDef, ParsedReducerOpDef, ParsedTypeOperation, ParsedTypeOperations
+  ReducersConfig,
+  ActionsConfig,
+  ParsedTypeOperation,
+  ParsedTypeOperations,
+  MacroDef, ParsedOpDef
 } from "./interfaces";
 
 const resolver = new Resolver();
@@ -33,7 +37,7 @@ export default class ReducerFactory {
     this.payloadPath = payloadPath;
   }
 
-  _processOp(op: ParsedReducerOpDef): Array<ParsedReducerOpDef> {
+  _processOp(op: ParsedOpDef): Array<ParsedOpDef> {
     const { type, from, to, ...restOp } = op;
     if(isUndefined(this.opHandlers[type])) {
       throw new Error(`Unrecognized action "${type}" found in the config`);
@@ -76,11 +80,11 @@ export default class ReducerFactory {
         types = [types] as Array<string>;
       }
       const { op: type, ...restOp } = opObject;
-      let parsedOp: ParsedReducerOpDef = {
+      let parsedOp = {
         type: isValidString(type) ? type as string : ops.ASSIGN,
         ...restOp
       };
-      const parsedOps = this._processOp(parsedOp);
+      const parsedOps = this._processOp(parsedOp as ParsedOpDef);
       const transform = localTransformer || globalTransformer;
       const defaultValue = !isUndefined(localDefault) ? localDefault : globalDefault;
       return (types as Array<string>).reduce((acc: ParsedTypeOperations, type) => {
@@ -106,7 +110,7 @@ export default class ReducerFactory {
           let { op: configOp } = currentOp;
           let { type, payload: payloadOverride } = configOp;
           const handler = this.opHandlers[type];
-          let newAction = JSON.parse(JSON.stringify(action));
+          let newAction = isPlainObject(action) ? JSON.parse(JSON.stringify(action)) : action;
           newAction.payload = !isUndefined(payloadOverride) ? payloadOverride : newAction.payload;
           return handler(state, {
             ...currentOp,
@@ -141,13 +145,13 @@ export default class ReducerFactory {
                 } as ReducerOpDef;
               }
               const currentReducerConfig = acc[reducerName] || {};
-              const { ops: reducerOps = [] } = currentReducerConfig;
+              const { ops: reducerOps = [] } = (currentReducerConfig as ReducerDef);
               reducerOps.push({
                 types: [actionType],
                 op: opType,
                 ...(op as object)
               });
-              currentReducerConfig.ops = reducerOps;
+              (currentReducerConfig as ReducerDef).ops = reducerOps;
               acc[reducerName] = currentReducerConfig;
               return acc;
             }, acc);
@@ -156,11 +160,11 @@ export default class ReducerFactory {
 
   _mergeConfigs(src: ReducersConfig = {}, dest: ReducersConfig = {}) {
     return Object.keys(src).reduce((acc, srcKey) => {
-      let srcReducer = this.macroExpander.expand(src[srcKey]);
+      let srcReducer = this.macroExpander.expand(src[srcKey] as MacroDef);
       if(!acc[srcKey]) {
         acc[srcKey] = srcReducer;
       } else {
-        const { ops: destOps = [] } = acc[srcKey];
+        const { ops: destOps = [] } = acc[srcKey] as ReducerDef;
         if(!isPlainObject(srcReducer)) {
           srcReducer = {
             defaultState: srcReducer
@@ -192,7 +196,7 @@ export default class ReducerFactory {
     return Object.keys(finalConfig)
       .reduce((reducers: ParsedReducers, reducerName) => {
         let reducerConfig = finalConfig[reducerName];
-        let { defaultState, transform: globalTransformer, reducer, ops: opsConfig = [], defaultValue: globalDefault, ...op } = reducerConfig;
+        let { defaultState, transform: globalTransformer, reducer, ops: opsConfig = [], defaultValue: globalDefault, ...op } = reducerConfig as ReducerDef;
         defaultState = JSON.parse(JSON.stringify(defaultState));
         const extraReducer = ReducerFactory._getExtraReducer(reducer, defaultState);
         if(opsConfig.length === 0 && Object.keys(op).length > 0) {

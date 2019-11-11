@@ -11,7 +11,7 @@
 ## Code
 
 ```JavaScript
-import ReducerFactory, { ops } from "@bit/kubric.redux.reducers.factory";
+import ReducerFactory, { ops } from "@kubric/reducer-factory";
 import { combineReducers, createStore } from "redux";
 
 const factory = new ReducerFactory({
