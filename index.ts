@@ -108,7 +108,7 @@ export default class ReducerFactory {
       if(!isUndefined(currentOps)) {
         return currentOps.reduce((state, currentOp) => {
           let { op: configOp } = currentOp;
-          let { type, payload: payloadOverride } = configOp;
+          let { type, payload: payloadOverride, value: valueOverride } = configOp;
           const handler = this.opHandlers[type];
           let newAction;
           try {
@@ -122,7 +122,7 @@ export default class ReducerFactory {
             ...currentOp,
             op: resolver.resolve(configOp, newAction.payload),
             basePath: this.payloadPath
-          }, newAction);
+          }, newAction, valueOverride);
         }, state);
       } else {
         return isFunction(reducer) ? (reducer as Function)(state, action) : state;

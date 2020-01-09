@@ -13,7 +13,8 @@ export interface ParsedOpDef {
   to?: string,
   from?: string,
   at?: number,
-  payload?: any
+  payload?: any,
+  value?: any
 }
 
 export interface ReducerOpDef {

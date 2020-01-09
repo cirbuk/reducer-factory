@@ -161,6 +161,8 @@ A reducer can be configured to perform any number of state operations via its `o
  `at` | Denotes the index at which the extracted value should be inserted. Refer [at](#at). | Optional<br><br>Valid only for `ops.INSERT`
  `transform` | Function used to transform the extracted value from the payload before it is applied to the state. Refer [transform](#transform). | Optional
  `defaultValue` | If provided, this value will get applied to the state in case the value extracted from the payload happens to be `undefined`. Refer [defaultValue](#defaultValue). | Optional
+ `payload` | If provided, the payload that is coming from the action will be overridden with whatever is provided here for the `types` specified. | Optional
+ `value` | If provided, the value extracted from the payload in the action will be overridden with whatever is provided here for the `types` specified. | Optional
 
 Eg.
 
