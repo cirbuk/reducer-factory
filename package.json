@@ -1,7 +1,7 @@
 {
   "name": "@kubric/reducer-factory",
   "description": "Redux reducers made declarative",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/cirbuk/reducer-factory",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
