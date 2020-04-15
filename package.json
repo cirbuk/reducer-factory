@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@kubric/litedash": "0.0.3",
-    "@kubric/reduxutils": "0.0.1",
+    "@kubric/reduxutils": "0.0.3",
     "@kubric/resolver": "1.1.1"
   }
 }
