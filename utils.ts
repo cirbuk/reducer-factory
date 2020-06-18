@@ -24,6 +24,3 @@ export const assignAtPath = (toAssign: any, path: string, state: any) => {
 };
 
 export const toArray = (str: string | Array<string>) => Array.isArray(str) ? str : [str];
-
-export const composeReducers = (reducers: Array<Function> = [], defaultState = {}) =>
-  (state = defaultState, action: ReduxAction) => reducers.reduce((state, reducer) => reducer(state, action), state);
