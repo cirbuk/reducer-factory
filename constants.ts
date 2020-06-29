@@ -6,6 +6,7 @@ export const ops = {
   APPEND: "APPEND",
   INSERT: "INSERT",
   PREPEND: "PREPEND",
+  DELETE: "DELETE",
 };
 
 export const macros = {
