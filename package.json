@@ -1,7 +1,7 @@
 {
   "name": "@kubric/reducer-factory",
   "description": "Redux reducers made declarative",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "homepage": "https://github.com/cirbuk/reducer-factory",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -28,7 +28,6 @@
     "@babel/plugin-proposal-object-rest-spread": "7.5.5",
     "@babel/preset-env": "7.5.5",
     "@babel/preset-typescript": "7.3.3",
-    "@bit/kubric.redux.reducks.utils": "0.0.4",
     "babel-jest": "24.8.0",
     "jest": "24.8.0",
     "lodash": "4.17.14",

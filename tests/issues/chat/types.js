@@ -1,4 +1,12 @@
-import { getTypes } from "@bit/kubric.redux.reducks.utils";
+/**
+ * Accepts an array of types and a prefix and returns the types object
+ * @param types
+ * @param prefix
+ */
+export const getTypes = (types = [], prefix = '') => types.reduce((acc, type) => {
+  acc[type] = `${prefix}/${type}`;
+  return acc;
+}, {});
 
 export default {
   ...getTypes([
